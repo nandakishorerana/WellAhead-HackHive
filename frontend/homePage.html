@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WellAhead — Your Health, Ahead of the Curve</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="homepage.css">
+</head>
+
+<body>
+
+    <header id="siteHeader">
+         <a href="#home" class="logo" aria-label="WellAhead home">
+    <img src="image\logo.png" alt="WellAhead Logo" class="logo-img">
+    <span class="logo-text">WellAhead</span>
+</a>
+
+        <nav class="navbar" aria-label="Primary">
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#doctor">Doctors</a></li>
+                <li><a href="#review">Reviews</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="select-role.html" class="nav-cta">Log in</a></li>
+            </ul>
+        </nav>
+
+        <div class="fas fa-bars" id="menuBars" role="button" tabindex="0" aria-label="Toggle menu"></div>
+    </header>
+
+    <section id="home" class="home">
+        <div class="hero-bg" aria-hidden="true">
+            <span class="hero-blob hero-blob--1"></span>
+            <span class="hero-blob hero-blob--2"></span>
+            <span class="hero-blob hero-blob--3"></span>
+            <span class="hero-grid"></span>
+        </div>
+
+        <div class="row">
+            <div class="images reveal" data-reveal>
+                <div class="image-frame">
+                    <img class="home-background" src="image/home.jpg" alt="Healthcare and wellness" width="1200" height="900" loading="eager">
+                </div>
+            </div>
+
+            <div class="content reveal" data-reveal>
+                <p class="hero-eyebrow"><span class="hero-dot"></span> Smart care platform</p>
+                <h1 class="hero-title"><span class="gradient-text">Stay</span> safe, <span class="gradient-text">stay</span> healthy.</h1>
+                <p class="hero-sub">Your health is our priority—clear guidance, AI-powered insights, and care that meets you where you are.</p>
+                <div class="hero-actions">
+                    <a href="#about"><button class="button button-primary" type="button">Explore services</button></a>
+                    <a href="select-role.html"><button class="button button-ghost" type="button">Sign in</button></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <h1 class="heading reveal" data-reveal>About our facility</h1>
+        <h3 class="title reveal" data-reveal>Learn and explore what we offer</h3>
+
+        <div class="box-container">
+
+            <div class="box reveal" data-reveal>
+                <div class="images">
+                    <img src="image\AIPredit.jpg" alt="AI health predictor" loading="lazy">
+                </div>
+
+                <div class="content">
+                    <h3>AI health predictor</h3>
+                    <p>Our intelligent AI analyzes your symptoms and health data to predict possible conditions early. Get quick insights so you can act with your care team sooner.</p>
+                    <a href="#contact"><button class="button" type="button">Learn more</button></a>
+                </div>
+            </div>
+
+            <div class="box reveal" data-reveal>
+                <div class="images">
+                    <img src="image\wellness.jpg" alt="Wellness plan" loading="lazy">
+                </div>
+
+                <div class="content">
+                    <h3>Wellness plan</h3>
+                    <p>Personalized plans that blend lifestyle, follow-ups, and education—so recovery and prevention feel simpler, not overwhelming.</p>
+                    <a href="#contact"><button class="button" type="button">Learn more</button></a>
+                </div>
+            </div>
+
+            <div class="box reveal" data-reveal>
+                <div class="images">
+                    <img src="image\premium.jpg" alt="Premium care" loading="lazy">
+                </div>
+
+                <div class="content">
+                    <h3>Premium care</h3>
+                    <p>Connect with specialists, get timely alerts, and keep continuous support when it matters most—without losing the human touch.</p>
+                    <a href="#contact"><button class="button" type="button">Learn more</button></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="doctor" class="card">
+        <div class="container">
+
+            <h1 class="heading reveal" data-reveal>Doctors</h1>
+            <h3 class="title reveal" data-reveal>Our professional team</h3>
+
+            <div class="box-container">
+
+                <div class="box reveal" data-reveal>
+                    <div class="doctor-photo">
+                        <img src="image\doctor1.jpeg" alt="Sanjay Bisnoy" loading="lazy">
+                    </div>
+
+                    <div class="content">
+                        <a href="#">
+                            <h2>Sanjay Bisnoy</h2>
+                        </a>
+                        <p>Cardiology</p>
+
+                        <div class="icons">
+                            <a href="#" class="fab fa-facebook-f" aria-label="Facebook"></a>
+                            <a href="#" class="fab fa-twitter" aria-label="Twitter"></a>
+                            <a href="#" class="fab fa-instagram" aria-label="Instagram"></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="box reveal" data-reveal>
+                    <div class="doctor-photo">
+                        <img src="image\doctor2.jpeg" alt="Swara Banerjee" loading="lazy">
+                    </div>
+
+                    <div class="content">
+                        <a href="#">
+                            <h2>Swara Banerjee</h2>
+                        </a>
+                        <p>Internal medicine</p>
+
+                        <div class="icons">
+                            <a href="#" class="fab fa-facebook-f" aria-label="Facebook"></a>
+                            <a href="#" class="fab fa-twitter" aria-label="Twitter"></a>
+                            <a href="#" class="fab fa-instagram" aria-label="Instagram"></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="box reveal" data-reveal>
+                    <div class="doctor-photo">
+                        <img src="image\doctor3.jpeg" alt="Sumit Sharma" loading="lazy">
+                    </div>
+
+                    <div class="content">
+                        <a href="#">
+                            <h2>Sumit Sharma</h2>
+                        </a>
+                        <p>Family health</p>
+
+                        <div class="icons">
+                            <a href="#" class="fab fa-facebook-f" aria-label="Facebook"></a>
+                            <a href="#" class="fab fa-twitter" aria-label="Twitter"></a>
+                            <a href="#" class="fab fa-instagram" aria-label="Instagram"></a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="review" class="review">
+
+        <h1 class="heading reveal" data-reveal>Patient reviews</h1>
+        <h3 class="title reveal" data-reveal>What people say about us</h3>
+
+        <div class="box-container">
+
+            <div class="box reveal" data-reveal>
+                <i class="fas fa-quote-left" aria-hidden="true"></i>
+                <p>The doctor was kind and professional. They understood my issue quickly and explained the treatment clearly.</p>
+
+                <div class="images">
+                    <img src="image/patient3.jpeg" alt="" loading="lazy">
+
+                    <div class="info">
+                        <h3>Neeraj Singh</h3>
+                        <span>Nov 2024</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="box reveal" data-reveal>
+                <i class="fas fa-quote-left" aria-hidden="true"></i>
+                <p>I'm very satisfied with the service—they were patient, supportive, and answered every question I had.</p>
+
+                <div class="images">
+                    <img src="image/patient1.jpeg" alt="" loading="lazy">
+
+                    <div class="info">
+                        <h3>Prapti Roy</h3>
+                        <span>Nov 2024</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="box reveal" data-reveal>
+                <i class="fas fa-quote-left" aria-hidden="true"></i>
+                <p>Great experience. They listened carefully, explained everything, and the care was excellent.</p>
+
+                <div class="images">
+                    <img src="image/patient2.jpeg" alt="" loading="lazy">
+
+                    <div class="info">
+                        <h3>Priti Sharma</h3>
+                        <span>Dec 2025</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+
+        <h1 class="heading reveal" data-reveal>Contact us</h1>
+        <h3 class="title reveal" data-reveal>We're here whenever you need us</h3>
+
+        <div class="row">
+
+            <div class="images reveal" data-reveal>
+                <img src="image/contactus.jpg" alt="Contact us" loading="lazy">
+            </div>
+
+            <div class="form-container reveal" data-reveal>
+                <form action="#" method="post" id="contactForm">
+                    <input type="text" placeholder="Full name" name="name" id="contactName" autocomplete="name">
+                    <input type="email" placeholder="Email address" name="email" id="contactEmail" autocomplete="email">
+                    <input type="tel" placeholder="Phone" name="phone" id="contactPhone" autocomplete="tel">
+                    <textarea name="message" cols="30" rows="6" id="contactMessage" placeholder="How can we help?"></textarea>
+                    <button type="submit" class="submit-btn">Send message</button>
+                </form>
+            </div>
+        </div>
+
+    </section>
+
+    <section class="footer">
+
+        <div class="box">
+            <h2 class="logo"><span>D</span>octors <span>C</span>ares</h2>
+
+            <p>Our priority is your health and comfort. We listen carefully and explain everything in plain language.</p>
+        </div>
+
+        <div class="box">
+            <h2 class="logo"><span>S</span>hare</h2>
+
+            <a href="#">Facebook</a>
+            <a href="#">Twitter</a>
+            <a href="#">Instagram</a>
+            <a href="#">Pinterest</a>
+        </div>
+
+        <div class="box">
+            <h2 class="logo"><span>L</span>inks</h2>
+
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#doctor">Doctors</a>
+            <a href="#review">Reviews</a>
+            <a href="#contact">Contact</a>
+            <a href="frontpage.html">Log in</a>
+        </div>
+
+    </section>
+
+    <script src="homepage.js"></script>
+</body>
+
+</html>
