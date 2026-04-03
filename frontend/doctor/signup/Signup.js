@@ -108,7 +108,7 @@
         return;
       }
 
-      window.location.href = "logindoc.html";
+      window.location.href = "../login/login.html";
 
     } catch (err) {
       console.error(err);
