@@ -3,3 +3,6 @@ sqlalchemy
 passlib
 python-jose
 pydantic
+uvicorn
+joblib
+pandas

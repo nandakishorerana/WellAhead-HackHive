@@ -1,6 +1,6 @@
 from pydantic import BaseModel, EmailStr, field_validator
 
-#AUTH SCHEMAS
+#Auth Signup
 
 class UserCreate(BaseModel):
     name: str
@@ -26,58 +26,6 @@ class UserOut(BaseModel):
     name: str
     email: str
     role: str
-
-    class Config:
-        from_attributes = True
-
-
-#HEALTH DATA SCHEMA
-
-class HealthDataCreate(BaseModel):
-    Age: int
-    Gender: int
-
-    Polyuria: int
-    Polydipsia: int
-    sudden_weight_loss: int
-    weakness: int
-    Polyphagia: int
-    Genital_thrush: int
-    visual_blurring: int
-    Itching: int
-    Irritability: int
-    delayed_healing: int
-    partial_paresis: int
-    muscle_stiffness: int
-    Alopecia: int
-    Obesity: int
-
-    Glucose: float
-    BloodPressure: float
-    Insulin: float
-
-class HealthDataOut(BaseModel):
-    id: int
-    Age: int
-    Gender: int
-    Glucose: float
-    BloodPressure: float
-    Insulin: float
-
-    Polyuria: int
-    Polydipsia: int
-    sudden_weight_loss: int
-    weakness: int
-    Polyphagia: int
-    Genital_thrush: int
-    visual_blurring: int
-    Itching: int
-    Irritability: int
-    delayed_healing: int
-    partial_paresis: int
-    muscle_stiffness: int
-    Alopecia: int
-    Obesity: int
 
     class Config:
         from_attributes = True
