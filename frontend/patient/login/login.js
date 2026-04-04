@@ -46,12 +46,12 @@ document.getElementById("loginBtn").addEventListener("click", async () => {
         console.log("HISTORY RESPONSE:", historyData);
 
         if (!historyRes.ok) {
-            window.location.href = "Patient-dashboard.html";
+            window.location.href = "../entryPages/entryPages.html";
             return;
         }
 
         if (Array.isArray(historyData) && historyData.length === 0) {
-            window.location.href = "Patient-dashboard.html";
+            window.location.href = "../entryPages/entryPages.html";
         } else {
             window.location.href = "dashboard.html";
         }

@@ -47,3 +47,16 @@ def add_health_data(
     db.refresh(new_data)
 
     return {"message": "Health data saved"}
+
+#GET HISTORY
+@router.get("/history")
+def get_history(
+    db: Session = Depends(get_db),
+    current_user = Depends(require_patient)
+):
+
+    data = db.query(models.HealthData)\
+        .filter(models.HealthData.user_id == current_user.id)\
+        .all()
+
+    return data
