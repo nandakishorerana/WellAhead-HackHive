@@ -9,10 +9,9 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="Patient_dashboard.css">
-<link rel="stylesheet" href="info.css">
 
 <style>
-/* 🔥 ALIGNMENT FIX */
+/* ALIGNMENT FIX */
 .hero-lite {
   max-width: 850px;
   margin: 40px auto;
@@ -40,7 +39,7 @@
   <!-- SIDEBAR -->
   <aside class="sidebar">
     <div class="brand">
-      <img class="brand-logo" src="logo.png" width="44" height="44" alt="WellAhead">
+      <img class="brand-logo" src="../../image/logo.png" alt="WellAhead" width="44" height="44">
       <span class="brand-name">WellAhead</span>
     </div>
 
@@ -82,7 +81,7 @@
       </div>
 
       <div class="card image-card p-4 p-md-5">
-        <img src="infoimage.jpeg" class="img-fluid rounded-3">
+        <img src="../../image/entry.jpeg" class="img-fluid rounded-3">
       </div>
 
     </section>
@@ -90,7 +89,7 @@
   </main>
 </div>
 
-<!-- ✅ FULL MODAL -->
+<!-- FULL MODAL -->
 <div class="modal fade" id="predictorModal">
   <div class="modal-dialog modal-lg modal-dialog-centered">
     <div class="modal-content">
@@ -102,77 +101,137 @@
 
       <div class="modal-body">
 
-        <!-- STEP 1 -->
-        <div class="form-step active" data-step="0">
-          <h5>A. Basic Information</h5>
-          <input type="number" class="form-control mb-3" placeholder="Age">
+        <!-- STEP: disease choice -->
+        <div class="form-step active" data-step-key="disease">
+          <h5>Which condition do you want to check for?</h5>
+          <p class="text-muted small mb-3">Choose one. You will complete a short questionnaire for that assessment.</p>
+          <div class="disease-choice-grid">
+            <label class="disease-option">
+              <input type="radio" name="entry-disease" value="diabetes" class="form-check-input">
+              <span class="disease-option__text">Diabetes</span>
+            </label>
+            <label class="disease-option">
+              <input type="radio" name="entry-disease" value="heart" class="form-check-input">
+              <span class="disease-option__text">Heart disease</span>
+            </label>
+          </div>
+        </div>
 
-          <select class="form-select">
-            <option>Select Gender</option>
-            <option>Male</option>
-            <option>Female</option>
+        <!-- STEP: basic (shared) -->
+        <div class="form-step" data-step-key="basic">
+          <h5>A. Basic Information</h5>
+          <input type="number" id="entry-age" class="form-control mb-3" placeholder="Age" min="1" max="120">
+
+          <select id="entry-gender" class="form-select">
+            <option value="">Select Gender</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
           </select>
         </div>
 
-        <!-- STEP 2 -->
-        <div class="form-step" data-step="1">
+        <!-- DIABETES: vitals -->
+        <div class="form-step" data-step-key="diabetes-vitals">
           <h5>B. Vitals</h5>
-          <input class="form-control mb-2" placeholder="Glucose">
-          <input class="form-control mb-2" placeholder="Blood Pressure (120/80)">
-          <input class="form-control" placeholder="Insulin">
+          <input id="entry-glucose" class="form-control mb-2" placeholder="Glucose" inputmode="decimal">
+          <input id="entry-bp" class="form-control mb-2" placeholder="Blood Pressure (120/80)">
+          <input id="entry-insulin" class="form-control" placeholder="Insulin" inputmode="decimal">
         </div>
 
-        <!-- STEP 3 (FULL FIXED) -->
-        <div class="form-step" data-step="2">
+        <!-- DIABETES: symptoms -->
+        <div class="form-step" data-step-key="diabetes-symptoms">
           <h5>C. Symptoms</h5>
 
           <label>Frequent Urination (Polyuria)</label>
-          <select class="form-select mb-2"><option>Yes</option><option selected>No</option></select>
+          <select id="entry-polyuria" class="form-select mb-2"><option>Yes</option><option selected>No</option></select>
 
           <label>Excessive Thirst (Polydipsia)</label>
-          <select class="form-select mb-2"><option>Yes</option><option selected>No</option></select>
+          <select id="entry-polydipsia" class="form-select mb-2"><option>Yes</option><option selected>No</option></select>
 
           <label>Sudden Weight Loss</label>
-          <select class="form-select mb-2"><option>Yes</option><option selected>No</option></select>
+          <select id="entry-weightloss" class="form-select mb-2"><option>Yes</option><option selected>No</option></select>
 
           <label>Weakness</label>
-          <select class="form-select mb-2"><option>Yes</option><option selected>No</option></select>
+          <select id="entry-weakness" class="form-select mb-2"><option>Yes</option><option selected>No</option></select>
 
           <label>Polyphagia (Excess Hunger)</label>
-          <select class="form-select mb-2"><option>Yes</option><option selected>No</option></select>
+          <select id="entry-polyphagia" class="form-select mb-2"><option>Yes</option><option selected>No</option></select>
 
           <label>Blurred Vision</label>
-          <select class="form-select mb-2"><option>Yes</option><option selected>No</option></select>
+          <select id="entry-vision" class="form-select mb-2"><option>Yes</option><option selected>No</option></select>
 
           <label>Itching</label>
-          <select class="form-select mb-2"><option>Yes</option><option selected>No</option></select>
-          
+          <select id="entry-itching" class="form-select mb-2"><option>Yes</option><option selected>No</option></select>
+
           <label>Irritability</label>
-          <select class="form-select"><option>Yes</option><option selected>No</option></select>
-        
+          <select id="entry-irritability" class="form-select"><option>Yes</option><option selected>No</option></select>
         </div>
 
-        <!-- STEP 4 (FULL FIXED) -->
-        <div class="form-step" data-step="3">
+        <!-- DIABETES: conditions -->
+        <div class="form-step" data-step-key="diabetes-conditions">
           <h5>D. Health Conditions</h5>
 
           <label>Obesity</label>
-          <select class="form-select mb-2"><option>Yes</option><option selected>No</option></select>
+          <select id="entry-obesity" class="form-select mb-2"><option>Yes</option><option selected>No</option></select>
 
           <label>Muscle Stiffness</label>
-          <select class="form-select mb-2"><option>Yes</option><option selected>No</option></select>
+          <select id="entry-stiffness" class="form-select mb-2"><option>Yes</option><option selected>No</option></select>
 
           <label>Partial Paresis</label>
-          <select class="form-select mb-2"><option>Yes</option><option selected>No</option></select>
+          <select id="entry-paresis" class="form-select mb-2"><option>Yes</option><option selected>No</option></select>
 
           <label>Alopecia (Hair Loss)</label>
-          <select class="form-select mb-2"><option>Yes</option><option selected>No</option></select>
+          <select id="entry-alopecia" class="form-select mb-2"><option>Yes</option><option selected>No</option></select>
 
           <label>Delayed Healing</label>
-          <select class="form-select mb-2"><option>Yes</option><option selected>No</option></select>
+          <select id="entry-healing" class="form-select mb-2"><option>Yes</option><option selected>No</option></select>
 
           <label>Genital Thrush</label>
-          <select class="form-select"><option>Yes</option><option selected>No</option></select>
+          <select id="entry-thrush" class="form-select"><option>Yes</option><option selected>No</option></select>
+        </div>
+
+        <!-- HEART: clinical (UCI-style fields) -->
+        <div class="form-step" data-step-key="heart-clinical">
+          <h5>B. Heart health indicators</h5>
+          <p class="text-muted small mb-3">Clinical measures often used in heart-risk screening. Use the values from your latest visit when possible.</p>
+
+          <label>cp — Chest pain type</label>
+          <select id="entry-cp" class="form-select mb-3">
+            <option value="0">0 — Typical angina</option>
+            <option value="1">1 — Atypical angina</option>
+            <option value="2">2 — Non-anginal pain</option>
+            <option value="3">3 — Asymptomatic</option>
+          </select>
+
+          <label>trestbps — Resting blood pressure (mm Hg on admission)</label>
+          <input id="entry-trestbps" type="number" class="form-control mb-3" placeholder="e.g. 130" min="0" max="300" inputmode="numeric">
+
+          <label>chol — Serum cholesterol (mg/dl)</label>
+          <input id="entry-chol" type="number" class="form-control mb-3" placeholder="e.g. 200" min="0" max="600" inputmode="numeric">
+
+          <label>fbs — Fasting blood sugar &gt; 120 mg/dl (1 = true; 0 = false)</label>
+          <select id="entry-fbs" class="form-select mb-3">
+            <option value="0">0 — No</option>
+            <option value="1">1 — Yes</option>
+          </select>
+
+          <label>restecg — Resting electrocardiographic results</label>
+          <select id="entry-restecg" class="form-select mb-3">
+            <option value="0">0 — Normal</option>
+            <option value="1">1 — ST-T wave abnormality</option>
+            <option value="2">2 — Left ventricular hypertrophy</option>
+          </select>
+
+          <label>thalach — Maximum heart rate achieved</label>
+          <input id="entry-thalach" type="number" class="form-control mb-3" placeholder="e.g. 150" min="0" max="250" inputmode="numeric">
+
+          <label>exang — Exercise induced angina (1 = yes; 0 = no)</label>
+          <select id="entry-exang" class="form-select mb-3">
+            <option value="0">0 — No</option>
+            <option value="1">1 — Yes</option>
+          </select>
+
+          <label>oldpeak — ST depression induced by exercise relative to rest</label>
+          <input id="entry-oldpeak" type="number" class="form-control" placeholder="e.g. 1.5" min="0" max="10" step="0.1" inputmode="decimal">
         </div>
 
       </div>

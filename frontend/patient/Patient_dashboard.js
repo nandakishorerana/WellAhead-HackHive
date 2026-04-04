@@ -1,64 +1,152 @@
 let currentStep = 0;
+let currentSteps = [];
 
-const steps = document.querySelectorAll(".form-step");
-const nextBtn = document.getElementById("nextBtn");
-const prevBtn = document.getElementById("prevBtn");
+// =========================
+function getCurrentSteps() {
+    const diseaseType = document.querySelector('input[name="entry-disease"]:checked')?.value || "diabetes";
+
+    if (diseaseType === "heart") {
+        return [
+            document.querySelector('.form-step[data-step-key="disease"]'),
+            document.querySelector('.form-step[data-step-key="basic"]'),
+            document.querySelector('.form-step[data-step-key="heart-clinical"]')
+        ].filter(step => step); // filter out nulls
+    } else if (diseaseType === "diabetes") {
+        return [
+            document.querySelector('.form-step[data-step-key="disease"]'),
+            document.querySelector('.form-step[data-step-key="basic"]'),
+            document.querySelector('.form-step[data-step-key="diabetes-vitals"]'),
+            document.querySelector('.form-step[data-step-key="diabetes-symptoms"]'),
+            document.querySelector('.form-step[data-step-key="diabetes-conditions"]')
+        ].filter(step => step);
+    } else {
+        // both
+        return [
+            document.querySelector('.form-step[data-step-key="disease"]'),
+            document.querySelector('.form-step[data-step-key="basic"]'),
+            document.querySelector('.form-step[data-step-key="diabetes-vitals"]'),
+            document.querySelector('.form-step[data-step-key="diabetes-symptoms"]'),
+            document.querySelector('.form-step[data-step-key="diabetes-conditions"]'),
+            document.querySelector('.form-step[data-step-key="heart-clinical"]')
+        ].filter(step => step);
+    }
+}
 
 // =========================
 function showStep(index) {
-
-    steps.forEach((step, i) => {
-        step.classList.remove("active");
-        if (i === index) step.classList.add("active");
+    currentSteps = getCurrentSteps();
+    currentSteps.forEach((step, i) => {
+        step.classList.toggle("active", i === index);
     });
 
     currentStep = index;
 
-    nextBtn.innerText = currentStep === steps.length - 1 ? "Submit" : "Next";
+    const nextBtn = document.getElementById("nextBtn");
+    const prevBtn = document.getElementById("prevBtn");
+
+    nextBtn.innerText = currentStep === currentSteps.length - 1 ? "Submit" : "Next";
     prevBtn.style.display = currentStep === 0 ? "none" : "inline-block";
 }
-
 
 // =========================
 async function submitForm() {
 
     const token = localStorage.getItem("token");
+    if (!token) return alert("Login first!");
 
-    if (!token) {
-        alert("Login first!");
-        window.location.href = "login.html";
-        return;
+    // Get selected disease type
+    const diseaseType = document.querySelector('input[name="entry-disease"]:checked').value;
+
+    let data = {};
+
+    // Common fields
+    const age = document.getElementById("entry-age").value;
+    const gender = document.getElementById("entry-gender").value;
+
+    if (diseaseType === "diabetes") {
+        data = {
+            disease_type: "diabetes",
+            Age: Number(age),
+            Gender: gender,
+            Glucose: Number(document.getElementById("entry-glucose").value),
+            BloodPressure: Number(document.getElementById("entry-bp").value),
+            Insulin: Number(document.getElementById("entry-insulin").value),
+            Polyuria: document.getElementById("entry-polyuria").value,
+            Polydipsia: document.getElementById("entry-polydipsia").value,
+            sudden_weight_loss: document.getElementById("entry-weightloss").value,
+            weakness: document.getElementById("entry-weakness").value,
+            Polyphagia: document.getElementById("entry-polyphagia").value,
+            visual_blurring: document.getElementById("entry-vision").value,
+            itching: document.getElementById("entry-itching").value,
+            Irritability: document.getElementById("entry-irritability").value,
+            Obesity: document.getElementById("entry-obesity").value,
+            muscle_stiffness: document.getElementById("entry-stiffness").value,
+            partial_paresis: document.getElementById("entry-paresis").value,
+            alopecia: document.getElementById("entry-alopecia").value,
+            delayed_healing: document.getElementById("entry-healing").value,
+            genital_thrush: document.getElementById("entry-thrush").value
+        };
     }
 
-    const inputs = document.querySelectorAll("input, select");
+    else if (diseaseType === "heart") {
+        data = {
+            disease_type: "heart",
+            age: Number(age),
+            sex: gender === "Male" ? 1 : 0,  // Convert to 0/1 for heart model
+            cp: Number(document.getElementById("entry-cp").value),
+            trestbps: Number(document.getElementById("entry-trestbps").value),
+            chol: Number(document.getElementById("entry-chol").value),
+            fbs: Number(document.getElementById("entry-fbs").value),
+            restecg: Number(document.getElementById("entry-restecg").value),
+            thalach: Number(document.getElementById("entry-thalach").value),
+            exang: Number(document.getElementById("entry-exang").value),
+            oldpeak: Number(document.getElementById("entry-oldpeak").value),
+            slope: 0,  // Not collected in form, default to 0
+            ca: 0,     // Not collected in form, default to 0
+            thal: 0    // Not collected in form, default to 0
+        };
+    }
 
-    const values = [];
-    inputs.forEach(input => values.push(input.value));
-
-    const data = {
-        Age: Number(values[0]),
-        Gender: values[1],
-
-        Glucose: Number(values[2]),
-        BloodPressure: Number(values[3]),
-        Insulin: Number(values[4]),
-
-        Polyuria: values[5],
-        Polydipsia: values[6],
-        sudden_weight_loss: values[7],
-        weakness: values[8],
-        Polyphagia: values[9],
-        visual_blurring: values[10],
-        itching: values[11],
-        Irritability: values[12],
-
-        Obesity: values[13],
-        muscle_stiffness: values[14],
-        partial_paresis: values[15],
-        alopecia: values[16],
-        delayed_healing: values[17],
-        genital_thrush: values[18]
-    };
+    else {
+        // For "both", we'd need to collect all fields, but for now assume diabetes + heart
+        data = {
+            disease_type: "both",
+            // Diabetes fields
+            Age: Number(age),
+            Gender: gender,
+            Glucose: Number(document.getElementById("entry-glucose").value),
+            BloodPressure: Number(document.getElementById("entry-bp").value),
+            Insulin: Number(document.getElementById("entry-insulin").value),
+            Polyuria: document.getElementById("entry-polyuria").value,
+            Polydipsia: document.getElementById("entry-polydipsia").value,
+            sudden_weight_loss: document.getElementById("entry-weightloss").value,
+            weakness: document.getElementById("entry-weakness").value,
+            Polyphagia: document.getElementById("entry-polyphagia").value,
+            visual_blurring: document.getElementById("entry-vision").value,
+            itching: document.getElementById("entry-itching").value,
+            Irritability: document.getElementById("entry-irritability").value,
+            Obesity: document.getElementById("entry-obesity").value,
+            muscle_stiffness: document.getElementById("entry-stiffness").value,
+            partial_paresis: document.getElementById("entry-paresis").value,
+            alopecia: document.getElementById("entry-alopecia").value,
+            delayed_healing: document.getElementById("entry-healing").value,
+            genital_thrush: document.getElementById("entry-thrush").value,
+            // Heart fields
+            age: Number(age),
+            sex: gender === "Male" ? 1 : 0,
+            cp: Number(document.getElementById("entry-cp").value),
+            trestbps: Number(document.getElementById("entry-trestbps").value),
+            chol: Number(document.getElementById("entry-chol").value),
+            fbs: Number(document.getElementById("entry-fbs").value),
+            restecg: Number(document.getElementById("entry-restecg").value),
+            thalach: Number(document.getElementById("entry-thalach").value),
+            exang: Number(document.getElementById("entry-exang").value),
+            oldpeak: Number(document.getElementById("entry-oldpeak").value),
+            slope: 0,
+            ca: 0,
+            thal: 0
+        };
+    }
 
     try {
         const res = await fetch("http://127.0.0.1:8000/predictions/predict", {
@@ -77,12 +165,7 @@ async function submitForm() {
             return;
         }
 
-        localStorage.setItem("latest_prediction", JSON.stringify(result));
-
-        // ✅ SAVE USER BASIC INFO
-        localStorage.setItem("user_age", data.Age);
-        localStorage.setItem("user_gender", data.Gender);
-
+        localStorage.setItem("selected_disease", diseaseType);
         window.location.href = "dashboard.html";
 
     } catch (err) {
@@ -91,10 +174,9 @@ async function submitForm() {
     }
 }
 
-
 // =========================
 nextBtn.addEventListener("click", () => {
-    if (currentStep < steps.length - 1) {
+    if (currentStep < currentSteps.length - 1) {
         showStep(currentStep + 1);
     } else {
         submitForm();
@@ -102,9 +184,16 @@ nextBtn.addEventListener("click", () => {
 });
 
 prevBtn.addEventListener("click", () => {
-    if (currentStep > 0) {
-        showStep(currentStep - 1);
-    }
+    if (currentStep > 0) showStep(currentStep - 1);
+});
+
+// =========================
+// SHOW HEART INPUTS
+document.querySelectorAll('input[name="entry-disease"]').forEach(radio => {
+    radio.addEventListener("change", function () {
+        currentStep = 0; // reset to first step
+        showStep(0);
+    });
 });
 
 showStep(0);

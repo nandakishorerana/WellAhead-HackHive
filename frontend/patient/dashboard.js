@@ -1,6 +1,8 @@
 let lineChart;
 let pieChart;
 
+const selectedDisease = localStorage.getItem("selected_disease") || "diabetes";
+
 // ================= LOAD DASHBOARD =================
 async function loadDashboard() {
 
@@ -26,7 +28,20 @@ async function loadDashboard() {
             return;
         }
 
-        const latest = data[data.length - 1];
+        let latest = data[data.length - 1];
+
+        const toggle = document.getElementById("diseaseToggle");
+
+        if (selectedDisease === "both") {
+            toggle.style.display = "block";
+            toggle.addEventListener("change", () => loadDashboard());
+            const selected = toggle.value;
+            if (latest[selected]) {
+                latest = latest[selected];
+            }
+        } else {
+            toggle.style.display = "none";
+        }
 
         // ✅ AGE + GENDER (LOCKED)
         document.getElementById("age").value = localStorage.getItem("user_age") || "";

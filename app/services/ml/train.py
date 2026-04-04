@@ -7,7 +7,7 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import accuracy_score
 
-from xgboost import XGBClassifier
+# from xgboost import XGBClassifier
 
 from .config import DATA_PATH, MODEL_PATH
 
@@ -38,14 +38,14 @@ def train_model():
             random_state=42
         ),
         "LogisticRegression": LogisticRegression(max_iter=1000),
-        "XGBoost": XGBClassifier(
-            n_estimators=200,
-            max_depth=6,
-            learning_rate=0.1,
-            random_state=42,
-            use_label_encoder=False,
-            eval_metric='logloss'
-        )
+        # "XGBoost": XGBClassifier(
+        #     n_estimators=200,
+        #     max_depth=6,
+        #     learning_rate=0.1,
+        #     random_state=42,
+        #     use_label_encoder=False,
+        #     eval_metric='logloss'
+        # )
     }
 
     model = None
