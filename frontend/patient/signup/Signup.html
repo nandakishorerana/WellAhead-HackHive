@@ -1,0 +1,84 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WellAhead — Patient Sign Up</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="Signup.css">
+</head>
+
+<body>
+
+<div class="outer-wrapper d-flex justify-content-center align-items-center">
+
+  <div class="main-container">
+    <div class="row g-0 h-100">
+
+      <!-- LEFT -->
+      <div class="col-md-6 left-panel d-flex flex-column justify-content-center text-center">
+        <h2 class="logo">
+          <img src="../../image/logo.png" alt="WellAhead" class="logo-icon">
+          <span class="logo-wordmark">WellAhead</span>
+        </h2>
+
+        <p class="left-headline">Enhancing patient care through intelligent medical insights.</p>
+
+        <div class="image-box">
+          <img src="../../image/bg1.jpeg" alt="Healthcare illustration" class="img-fluid">
+        </div>
+      </div>
+
+      <!-- RIGHT -->
+      <div class="col-md-6 right-panel d-flex justify-content-center align-items-center">
+        <div class="signup-box">
+
+          <h3 class="title text-center">Patient Sign Up</h3>
+
+          <div class="input-box">
+            <i class="fa fa-user"></i>
+            <input type="text" id="fullName" placeholder="Full Name" autocomplete="name">
+          </div>
+
+          <div class="input-box">
+            <i class="fa fa-envelope"></i>
+            <input type="email" id="email" placeholder="Email" autocomplete="email">
+          </div>
+
+          <div class="input-box">
+            <i class="fa fa-lock"></i>
+            <input type="password" id="password" placeholder="Password" autocomplete="new-password">
+            <i class="fa fa-eye eye" data-target="password" aria-label="Show password"></i>
+          </div>
+
+          <div class="input-box">
+            <i class="fa fa-lock"></i>
+            <input type="password" id="confirmPassword" placeholder="Confirm Password" autocomplete="new-password">
+            <i class="fa fa-eye eye" data-target="confirmPassword" aria-label="Show password"></i>
+          </div>
+
+          <!-- <a href="login.html" class="signup-btn" id="signupBtn">Sign Up</a> -->
+          <button class="signup-btn" id="signupBtn">Sign Up</button>
+          <p class="login-text">
+            Already have an account?
+            <a href="../login/login.html" class="login-link">Login</a>
+          </p>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<script src="Signup.js"></script>
+</body>
+</html>
