@@ -1,0 +1,318 @@
+/* ================= GLOBAL ================= */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: #f4f7fb;
+}
+
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Layout */
+.main-container {
+    display: flex;
+}
+
+/* ================= SIDEBAR ================= */
+.sidebar {
+    width: 220px;
+    height: 100vh;
+    background: #ffffff;
+    padding: 20px;
+    box-shadow: 2px 0 10px rgba(0,0,0,0.05);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 28px;
+}
+
+.brand-logo {
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
+  flex-shrink: 0;
+  border-radius: 50%;
+}
+
+.brand-name {
+  font-weight: 700;
+  color: var(--accent-dark);
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.sidebar ul li.active,
+.sidebar ul li:hover {
+    background: #eaf2ff;
+    color: #2a7be4;
+}
+
+.profile-section {
+  position: relative;
+  cursor: pointer;
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+}
+/* FIXED DROPDOWN */
+.dropdown-menu {
+  position: absolute;
+  top: 30px;
+  right: -2px;
+  width: 160px; /* FIXED */
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  display: none;
+  overflow: hidden;
+  z-index: 1000;
+}
+
+.dropdown-menu div {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.dropdown-menu div:hover {
+  background: #f0f0f0;
+}
+
+/* ================= CONTENT ================= */
+.content {
+    flex: 1;
+    padding: 20px;
+}
+
+/* ================= HEADER ================= */
+.header {
+    background: white;
+    padding: 15px 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+/* Profile dropdown */
+.profile-section {
+    position: relative;
+    cursor: pointer;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 35px;
+    right: 0;
+    width: 160px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    display: none;
+    overflow: hidden;
+    z-index: 1000;
+}
+
+.dropdown-menu div {
+    padding: 12px;
+    cursor: pointer;
+}
+
+.dropdown-menu div:hover {
+    background: #f0f4ff;
+}
+
+/* ================= CARDS ================= */
+.card-box {
+    padding: 20px;
+    border-radius: 14px;
+    color: white;
+    font-weight: 500;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+}
+
+.blue {
+    background: linear-gradient(45deg, #4facfe, #00f2fe);
+}
+
+.red {
+    background: linear-gradient(45deg, #ff6a6a, #ff9472);
+}
+
+.green {
+    background: linear-gradient(45deg, #43e97b, #38f9d7);
+}
+
+/* ================= TABLE ================= */
+.table-box {
+    background: white;
+    padding: 20px;
+    border-radius: 14px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.table th {
+    font-weight: 600;
+    color: #555;
+}
+
+.table td {
+    vertical-align: middle;
+}
+
+/* Hover row */
+tbody tr:hover {
+    background: #f7faff;
+}
+
+/* ================= BADGES ================= */
+.badge {
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-size: 12px;
+}
+
+.bg-danger {
+    background: #ff4d4d !important;
+}
+
+.bg-success {
+    background: #28a745 !important;
+}
+
+/* ================= BUTTONS ================= */
+.btn-primary {
+    background: #2a7be4;
+    border: none;
+    border-radius: 8px;
+    padding: 5px 12px;
+}
+
+.btn-primary:hover {
+    background: #1c5fd1;
+}
+
+.btn-danger {
+    background: #ff4d4d;
+    border: none;
+    border-radius: 8px;
+    padding: 5px 12px;
+}
+
+.btn-danger:hover {
+    background: #e60023;
+}
+
+/* ================= PRIORITY ================= */
+.priority-box {
+    background: white;
+    padding: 20px;
+    border-radius: 14px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.priority-card {
+    background: linear-gradient(45deg, #ff6a6a, #ff9472);
+    color: white;
+    padding: 15px;
+    border-radius: 12px;
+    margin-bottom: 15px;
+    position: relative;
+    box-shadow: 0 5px 12px rgba(0,0,0,0.1);
+}
+
+.priority-card span {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    font-weight: bold;
+}
+
+/* ================= DETAILS PREVIEW ================= */
+.details-box {
+    background: white;
+    padding: 20px;
+    border-radius: 14px;
+    margin-top: 20px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.details-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* ================= APPOINTMENTS ================= */
+.appointments {
+    background: white;
+    padding: 20px;
+    border-radius: 14px;
+    margin-top: 20px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.appoint-item {
+    padding: 12px 0;
+    border-bottom: 1px solid #eee;
+}
+
+/* ================= STATUS ================= */
+.status-confirmed {
+    color: #28a745;
+    font-weight: 600;
+}
+
+.status-pending {
+    color: #ff9800;
+}
+
+/* ================= RISK ================= */
+.risk-high {
+    background: #ff6a6a;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 8px;
+}
+
+.risk-moderate {
+    background: #ffd966;
+    padding: 5px 10px;
+    border-radius: 8px;
+}
+
+/* ================= ACCEPT BUTTON ================= */
+.btn-accept {
+    background: #28a745;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 8px;
+}
+
+.btn-accept:hover {
+    background: #1e7e34;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 768px) {
+    .sidebar {
+        display: none;
+    }
+
+    .content {
+        padding: 10px;
+    }
+}

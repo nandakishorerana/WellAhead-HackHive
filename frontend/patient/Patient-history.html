@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WellAhead | Health History</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="Patient-history.css">
+</head>
+<body>
+
+<div class="page-shell">
+  <aside class="sidebar" id="sidebar">
+     <div class="brand">
+      <img class="brand-logo" src="logo.png" width="44" height="44" alt="WellAhead">
+      <span class="brand-name">WellAhead</span>
+    </div>
+    <ul class="sidebar-nav">
+      <li><a href="dashboard.html">Dashboard</a></li>
+      <li><a href="patient-insight.html">AI Insights</a></li>
+      <li><a href="patient-prevent.html">Prevention Plan</a></li>
+      <li><a href="Patient-doctors.html">Doctors</a></li>
+      <li class="active"><a href="Patient-history.html">Health History</a></li>
+    </ul>
+    <div class="profile-section" id="profileTrigger">
+      <img src="https://i.pravatar.cc/40?img=12" alt="Patient avatar">
+      <span>Sam Carter</span>
+      <div class="profile-menu" id="profileMenu">
+        <a href="#">My Profile</a>
+        <a href="#">Settings</a>
+        <a href="#">Logout</a>
+      </div>
+    </div>
+  </aside>
+
+  <main class="main-content">
+    <header class="top-header">
+      <button class="menu-btn d-lg-none" id="menuBtn" type="button" aria-label="Toggle menu">☰</button>
+      <h1>Health History</h1>
+    </header>
+
+    <section class="hero-lite">
+      <h4>Health History</h4>
+      <p>Your risk scores and milestones over time—clear, chronological, and easy to review with your care team.</p>
+    </section>
+
+    <section class="content-section">
+      <div class="row g-4">
+        <div class="col-lg-8">
+          <h6 class="section-label mb-3">Timeline</h6>
+          <div class="timeline">
+            <div class="card-item">
+              <span class="card-date">Jan 26, 2026</span>
+              <span class="risk-badge risk-low">42% Low Risk</span>
+              <p class="card-desc mb-0">Stable health condition</p>
+            </div>
+            <div class="card-item">
+              <span class="card-date">Jan 19, 2026</span>
+              <span class="risk-badge risk-medium">52% Medium Risk</span>
+              <p class="card-desc mb-0">Better diet control</p>
+            </div>
+            <div class="card-item">
+              <span class="card-date">Jan 12, 2026</span>
+              <span class="risk-badge risk-medium">65% Medium Risk</span>
+              <p class="card-desc mb-0">Improved activity</p>
+            </div>
+            <div class="card-item">
+              <span class="card-date">Jan 5, 2026</span>
+              <span class="risk-badge risk-high">78% High Risk</span>
+              <p class="card-desc mb-0">High glucose detected</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4">
+          <h6 class="section-label mb-3">Summary</h6>
+          <div class="info-card">
+            <h6>Current Risk</h6>
+            <p id="currentRisk" class="stat-value text-success">42%</p>
+          </div>
+          <div class="info-card">
+            <h6>Improvement</h6>
+            <p id="improvement" class="stat-value text-primary-teal">−36%</p>
+          </div>
+          <div class="info-card">
+            <h6>Trend</h6>
+            <p id="trend" class="stat-trend text-success mb-0">Improving ↗</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</div>
+
+<script src="Patient-history.js"></script>
+</body>
+</html>

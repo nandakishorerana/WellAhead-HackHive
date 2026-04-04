@@ -1,0 +1,365 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+/* Body */
+body {
+  background: #eef2f7;
+}
+
+/* Container */
+.main-container {
+  max-width: 900px;
+}
+
+/* Cards */
+.card {
+  border: none;
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+/* Title */
+h1 {
+  font-size: 32px;
+  color: #2b4c7e;
+  font-weight: 600;
+}
+
+/* Subtitle */
+p {
+  color: #6c757d;
+  font-size: 16px;
+}
+
+/* Button */
+.btn-primary {
+  background: linear-gradient(135deg, #3b6fd8, #5a8dee);
+  border: none;
+  border-radius: 30px;
+  padding: 10px 25px;
+  font-size: 16px;
+  box-shadow: 0 5px 15px rgba(59,111,216,0.3);
+}
+
+.btn-primary:hover {
+  opacity: 0.9;
+}
+
+/* Image */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Modal */
+.modal-content {
+  border-radius: 20px;
+  padding: 10px;
+}
+
+/* Modal Header */
+.modal-header {/* AI Healthcare — Teal-Blue Theme */
+:root {
+  --primary-teal: #0ea5e9;
+  --secondary-blue: #14b8a6;
+  --bg-light: #e0f2f1;
+  --button-light: #ccfbf1;
+  --accent-dark: #0f172a;
+  --text-primary: #1e293b;
+  --button-dark: #0c4a6e;
+  --white: #ffffff;
+  --nav-teal: #0f766e;
+  --deep-teal: #0e7490;
+  --soft-border: #e5e7eb;
+  --link-hover: #38bdf8;
+  --muted: #64748b;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", "Segoe UI", sans-serif;
+  color: var(--text-primary);
+  background:
+    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(14, 165, 233, 0.12), transparent),
+    linear-gradient(180deg, var(--bg-light) 0%, #f0fdfa 100%);
+  min-height: 100vh;
+}
+
+.main-container {
+  max-width: 900px;
+}
+
+/* Cards */
+.card {
+  border: 1px solid var(--soft-border);
+  border-radius: 20px;
+  background: var(--white);
+  box-shadow: 0 4px 24px rgba(15, 23, 42, 0.06);
+}
+
+.welcome-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.welcome-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary-teal), var(--secondary-blue));
+}
+
+.page-title {
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  color: var(--accent-dark);
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+}
+
+.lead-text {
+  color: var(--muted);
+  font-size: 0.95rem;
+  max-width: 42ch;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 1.5rem;
+  line-height: 1.55;
+}
+
+/* Theme buttons */
+.btn-theme-primary {
+  background: var(--nav-teal);
+  border: none;
+  color: var(--white);
+  border-radius: 28px;
+  padding: 10px 28px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  box-shadow: 0 6px 18px rgba(15, 118, 110, 0.28);
+  transition: filter 0.2s ease, transform 0.2s ease;
+}
+
+.btn-theme-primary:hover {
+  background: #0d6d66;
+  color: var(--white);
+  filter: brightness(1.03);
+  transform: translateY(-1px);
+}
+
+.btn-theme-secondary {
+  background: var(--white);
+  border: 1.5px solid var(--nav-teal);
+  color: var(--nav-teal);
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 0.875rem;
+  padding: 8px 18px;
+}
+
+.btn-theme-secondary:hover {
+  background: var(--button-light);
+  color: var(--nav-teal);
+  border-color: var(--nav-teal);
+}
+
+.btn-theme-outline {
+  background: transparent;
+  border: 1px solid var(--soft-border);
+  color: var(--text-primary);
+  border-radius: 10px;
+  font-weight: 500;
+}
+
+.btn-theme-outline:hover {
+  background: #f8fafc;
+  color: var(--text-primary);
+}
+
+.image-card img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Modal */
+.modal-content {
+  border-radius: 20px;
+  border: 1px solid var(--soft-border);
+  overflow: hidden;
+  box-shadow: 0 24px 48px rgba(15, 23, 42, 0.12);
+}
+
+.modal-header {
+  border-bottom: none;
+  background: linear-gradient(135deg, var(--deep-teal) 0%, var(--nav-teal) 100%);
+  color: var(--white);
+  padding: 1rem 1.25rem;
+}
+
+.modal-title {
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.modal-body {
+  padding: 1.25rem 1.5rem;
+  background: var(--white);
+}
+
+.modal-footer {
+  border-top: 1px solid var(--soft-border);
+  padding: 1rem 1.25rem;
+  background: #fafafa;
+}
+
+.form-label {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--accent-dark);
+  margin-bottom: 0.25rem;
+}
+
+.form-control,
+.form-select {
+  border-radius: 10px;
+  border: 1px solid var(--soft-border);
+  font-size: 0.875rem;
+  padding: 0.5rem 0.75rem;
+}
+
+.form-control:focus,
+.form-select:focus {
+  border-color: rgba(14, 165, 233, 0.5);
+  box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.15);
+}
+
+.form-step {
+  display: none;
+}
+
+.form-step.active {
+  display: block;
+  animation: fadeIn 0.25s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.form-step h5 {
+  margin-bottom: 1rem;
+  color: var(--accent-dark);
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+@media (max-width: 768px) {
+  .card {
+    padding: 1.5rem !important;
+  }
+
+  .modal-footer .ms-auto {
+    margin-left: 0 !important;
+    width: 100%;
+    justify-content: flex-end;
+  }
+}
+  border-bottom: none;
+  background: linear-gradient(135deg, #3b6fd8, #5a8dee);
+  color: white;
+  border-radius: 20px 20px 0 0;
+}
+
+/* Modal Title */
+.modal-title {
+  font-weight: 500;
+}
+
+/* Close button white */
+.btn-close {
+  filter: invert(1);
+}
+
+/* Inputs */
+.form-control {
+  border-radius: 10px;
+  padding: 10px;
+  margin-top: 10px;
+}
+
+/* Labels */
+label {
+  margin-top: 10px;
+  font-weight: 500;
+  color: #333;
+}
+
+/* Step Sections */
+.form-step {
+  display: none;
+}
+
+.form-step.active {
+  display: block;
+}
+
+/* Section Titles */
+h5 {
+  margin-bottom: 15px;
+  color: #2b4c7e;
+}
+
+/* Modal Footer */
+.modal-footer {
+  border-top: none;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Buttons */
+.btn-secondary {
+  border-radius: 10px;
+}
+
+#nextBtn,
+#prevBtn {
+  border-radius: 10px;
+  padding: 8px 20px;
+}
+
+/* Hover effects */
+button:hover {
+  transform: scale(1.03);
+  transition: 0.2s;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .card {
+    padding: 20px;
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+}

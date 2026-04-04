@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WellAhead | Dashboard</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="Patient_dashboard.css">
+<link rel="stylesheet" href="info.css">
+
+<style>
+/* 🔥 ALIGNMENT FIX */
+.hero-lite {
+  max-width: 850px;
+  margin: 40px auto;
+}
+
+.hero-lite .btn-theme-primary {
+  width: auto;
+  min-width: 260px;
+  padding: 12px 28px;
+}
+
+/* better spacing */
+.image-card img {
+  max-height: 260px;
+  object-fit: contain;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="page-shell">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="brand">
+      <img class="brand-logo" src="logo.png" width="44" height="44" alt="WellAhead">
+      <span class="brand-name">WellAhead</span>
+    </div>
+
+    <ul class="sidebar-nav">
+      <li class="active"><a href="#">Dashboard</a></li>
+      <li><a href="#">AI Insights</a></li>
+      <li><a href="#">Prevention Plan</a></li>
+      <li><a href="#">Doctors</a></li>
+      <li><a href="#">Health History</a></li>
+    </ul>
+
+    <div class="profile-section">
+      <img src="https://i.pravatar.cc/40?img=12">
+      <span>Sam Carter</span>
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="main-content">
+
+    <header class="top-header">
+      <h1>Welcome, Sam!</h1>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero-lite text-center">
+
+      <div class="card welcome-card p-4 p-md-5 mb-4">
+        <h2 class="page-title">Welcome to WellAhead</h2>
+        <p class="lead-text">
+          Start by entering your health data to get personalized insights.
+        </p>
+
+        <button class="btn btn-theme-primary mt-3"
+          data-bs-toggle="modal"
+          data-bs-target="#predictorModal">
+          Enter Health Data
+        </button>
+      </div>
+
+      <div class="card image-card p-4 p-md-5">
+        <img src="infoimage.jpeg" class="img-fluid rounded-3">
+      </div>
+
+    </section>
+
+  </main>
+</div>
+
+<!-- ✅ FULL MODAL -->
+<div class="modal fade" id="predictorModal">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <h4>Add Health Details</h4>
+        <button class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+      </div>
+
+      <div class="modal-body">
+
+        <!-- STEP 1 -->
+        <div class="form-step active" data-step="0">
+          <h5>A. Basic Information</h5>
+          <input type="number" class="form-control mb-3" placeholder="Age">
+
+          <select class="form-select">
+            <option>Select Gender</option>
+            <option>Male</option>
+            <option>Female</option>
+          </select>
+        </div>
+
+        <!-- STEP 2 -->
+        <div class="form-step" data-step="1">
+          <h5>B. Vitals</h5>
+          <input class="form-control mb-2" placeholder="Glucose">
+          <input class="form-control mb-2" placeholder="Blood Pressure (120/80)">
+          <input class="form-control" placeholder="Insulin">
+        </div>
+
+        <!-- STEP 3 (FULL FIXED) -->
+        <div class="form-step" data-step="2">
+          <h5>C. Symptoms</h5>
+
+          <label>Frequent Urination (Polyuria)</label>
+          <select class="form-select mb-2"><option>Yes</option><option selected>No</option></select>
+
+          <label>Excessive Thirst (Polydipsia)</label>
+          <select class="form-select mb-2"><option>Yes</option><option selected>No</option></select>
+
+          <label>Sudden Weight Loss</label>
+          <select class="form-select mb-2"><option>Yes</option><option selected>No</option></select>
+
+          <label>Weakness</label>
+          <select class="form-select mb-2"><option>Yes</option><option selected>No</option></select>
+
+          <label>Polyphagia (Excess Hunger)</label>
+          <select class="form-select mb-2"><option>Yes</option><option selected>No</option></select>
+
+          <label>Blurred Vision</label>
+          <select class="form-select mb-2"><option>Yes</option><option selected>No</option></select>
+
+          <label>Itching</label>
+          <select class="form-select mb-2"><option>Yes</option><option selected>No</option></select>
+          
+          <label>Irritability</label>
+          <select class="form-select"><option>Yes</option><option selected>No</option></select>
+        
+        </div>
+
+        <!-- STEP 4 (FULL FIXED) -->
+        <div class="form-step" data-step="3">
+          <h5>D. Health Conditions</h5>
+
+          <label>Obesity</label>
+          <select class="form-select mb-2"><option>Yes</option><option selected>No</option></select>
+
+          <label>Muscle Stiffness</label>
+          <select class="form-select mb-2"><option>Yes</option><option selected>No</option></select>
+
+          <label>Partial Paresis</label>
+          <select class="form-select mb-2"><option>Yes</option><option selected>No</option></select>
+
+          <label>Alopecia (Hair Loss)</label>
+          <select class="form-select mb-2"><option>Yes</option><option selected>No</option></select>
+
+          <label>Delayed Healing</label>
+          <select class="form-select mb-2"><option>Yes</option><option selected>No</option></select>
+
+          <label>Genital Thrush</label>
+          <select class="form-select"><option>Yes</option><option selected>No</option></select>
+        </div>
+
+      </div>
+
+      <div class="modal-footer">
+        <button class="btn btn-theme-outline" data-bs-dismiss="modal">Cancel</button>
+        <button class="btn btn-theme-secondary" id="prevBtn">Previous</button>
+        <button class="btn btn-theme-primary" id="nextBtn">Next</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<script src="Patient_dashboard.js"></script>
+
+</body>
+</html>

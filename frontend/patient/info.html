@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>WellAhead</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="info.css">
+
+  <style>
+    body {
+      background: #f5f7fb;
+    }
+
+    .main-container {
+      max-width: 900px;
+    }
+
+    .card {
+      border-radius: 18px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    }
+
+    .modal-content {
+      border-radius: 16px;
+    }
+
+    .form-step {
+      display: none;
+    }
+
+    .form-step.active {
+      display: block;
+    }
+
+    .step-indicator {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 15px;
+    }
+
+    .step-indicator div {
+      flex: 1;
+      height: 5px;
+      margin: 0 5px;
+      background: #ddd;
+      border-radius: 10px;
+    }
+
+    .step-indicator .active {
+      background: #0d6efd;
+    }
+
+    input, select {
+      border-radius: 10px !important;
+    }
+
+    h5 {
+      margin-bottom: 15px;
+      font-weight: 600;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="container main-container mt-5">
+
+  <!-- Welcome -->
+  <div class="card text-center p-4 mb-4">
+    <h1>💙 WellAhead</h1>
+    <p>Start by entering your health data to get personalized insights.</p>
+
+    <button class="btn btn-primary px-4" data-bs-toggle="modal" data-bs-target="#predictorModal">
+      Enter Health Data
+    </button>
+  </div>
+
+  <!-- Image -->
+  <div class="card text-center p-4">
+    <img src="infoimage.jpeg" class="img-fluid" style="max-height:300px;">
+  </div>
+
+</div>
+
+<!-- MODAL -->
+<div class="modal fade" id="predictorModal">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content p-3">
+
+      <!-- HEADER -->
+      <div class="modal-header border-0">
+        <h4 class="modal-title">Health Assessment</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <!-- STEP PROGRESS -->
+      <div class="step-indicator">
+        <div class="active"></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+
+      <!-- BODY -->
+      <div class="modal-body">
+
+        <!-- STEP 1 -->
+        <div class="form-step active">
+          <h5>Basic Info</h5>
+
+          <input id="age" type="number" class="form-control mb-3" placeholder="Age">
+
+          <select id="gender" class="form-control">
+            <option value="">Select Gender</option>
+            <option>Male</option>
+            <option>Female</option>
+          </select>
+        </div>
+
+        <!-- STEP 2 -->
+        <div class="form-step">
+          <h5>Vitals</h5>
+
+          <input id="glucose" type="number" class="form-control mb-3" placeholder="Glucose">
+          <input id="bp" type="number" class="form-control mb-3" placeholder="Blood Pressure">
+          <input id="insulin" type="number" class="form-control" placeholder="Insulin">
+        </div>
+
+        <!-- STEP 3 -->
+        <div class="form-step">
+          <h5>Symptoms</h5>
+
+          <label>Polyuria</label>
+          <select id="polyuria" class="form-control mb-2"><option>Yes</option><option>No</option></select>
+
+          <label>Polydipsia</label>
+          <select id="polydipsia" class="form-control mb-2"><option>Yes</option><option>No</option></select>
+
+          <label>Weight Loss</label>
+          <select id="weight_loss" class="form-control mb-2"><option>Yes</option><option>No</option></select>
+
+          <label>Weakness</label>
+          <select id="weakness" class="form-control mb-2"><option>Yes</option><option>No</option></select>
+
+          <label>Polyphagia</label>
+          <select id="polyphagia" class="form-control mb-2"><option>Yes</option><option>No</option></select>
+
+          <label>Blurred Vision</label>
+          <select id="blurred_vision" class="form-control mb-2"><option>Yes</option><option>No</option></select>
+
+          <label>Itching</label>
+          <select id="itching" class="form-control"><option>Yes</option><option>No</option></select>
+        </div>
+
+        <!-- STEP 4 -->
+        <div class="form-step">
+          <h5>Health Conditions</h5>
+
+          <label>Obesity</label>
+          <select id="obesity" class="form-control mb-2"><option>Yes</option><option>No</option></select>
+
+          <label>Muscle Stiffness</label>
+          <select id="muscle_stiffness" class="form-control mb-2"><option>Yes</option><option>No</option></select>
+
+          <label>Partial Paresis</label>
+          <select id="paresis" class="form-control mb-2"><option>Yes</option><option>No</option></select>
+
+          <label>Alopecia</label>
+          <select id="alopecia" class="form-control mb-2"><option>Yes</option><option>No</option></select>
+
+          <label>Delayed Healing</label>
+          <select id="healing" class="form-control mb-2"><option>Yes</option><option>No</option></select>
+
+          <label>Genital Thrush</label>
+          <select id="thrush" class="form-control"><option>Yes</option><option>No</option></select>
+        </div>
+
+      </div>
+
+      <!-- FOOTER -->
+      <div class="modal-footer border-0">
+        <button class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+        <button class="btn btn-outline-primary" id="prevBtn">Previous</button>
+        <button class="btn btn-primary px-4" id="nextBtn">Next</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="info.js"></script>
+
+</body>
+</html>
